@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lookup_needs_types",
+  "info": {
+    "singularName": "lookup-needs-type",
+    "pluralName": "lookup-needs-types",
+    "displayName": "lookup needs type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

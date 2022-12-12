@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donate_supplies",
+  "info": {
+    "singularName": "donate-supplie",
+    "pluralName": "donate-supplies",
+    "displayName": "donate supplie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "lookup_needs_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lookup-needs-type.lookup-needs-type"
+    },
+    "url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "review",
+        "applied",
+        "pending",
+        "delivery ",
+        "received",
+        "reached"
+      ],
+      "default": "pending"
+    }
+  }
+}

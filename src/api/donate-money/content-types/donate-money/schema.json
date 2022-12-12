@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donate_monies",
+  "info": {
+    "singularName": "donate-money",
+    "pluralName": "donate-monies",
+    "displayName": "Donate money",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "amount_money": {
+      "type": "string"
+    },
+    "delivery_point": {
+      "type": "string"
+    },
+    "donate_money_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::donate-money-type.donate-money-type"
+    },
+    "card_number": {
+      "type": "string"
+    },
+    "card_date": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    }
+  }
+}

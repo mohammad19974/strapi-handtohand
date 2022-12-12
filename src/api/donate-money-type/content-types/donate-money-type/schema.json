@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donate_money_types",
+  "info": {
+    "singularName": "donate-money-type",
+    "pluralName": "donate-money-types",
+    "displayName": "Donate money type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  }
+}

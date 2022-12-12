@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "apply_helps",
+  "info": {
+    "singularName": "apply-help",
+    "pluralName": "apply-helps",
+    "displayName": "Apply help"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "idPersone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "typeHelp": {
+      "type": "string"
+    }
+  }
+}
