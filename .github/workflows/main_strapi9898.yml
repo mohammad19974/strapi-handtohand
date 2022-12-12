@@ -20,12 +20,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      - name: 'Az CLI login'
-        uses: azure/login@v1
-        with:
-          client-id: "handtohand21d"
-          subscription-id: "4ae6b385-39dd-434c-b113-775b123387e4"
-  
+    
     
 
       - name: npm install, build, and test
