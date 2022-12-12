@@ -23,8 +23,8 @@ jobs:
       - name: 'Az CLI login'
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: "handtohand21d"
+          subscription-id: "4ae6b385-39dd-434c-b113-775b123387e4"
   
     
 
