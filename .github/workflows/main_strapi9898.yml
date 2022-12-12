@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
+  steps:
     
     - name: Login via Az module
       uses: azure/login@v1
