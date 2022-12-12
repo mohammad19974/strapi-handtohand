@@ -32,8 +32,8 @@ jobs:
         with:
           creds: ${{secrets.AZURE_CREDENTIALS}}
           enable-AzPSSession: true 
-        - run: |
-        Get-AzVM -ResourceGroupName "strapi9898_group"
+        run: |
+          Get-AzVM -ResourceGroupName "strapi9898_group"
 
   deploy:
     runs-on: ubuntu-latest
