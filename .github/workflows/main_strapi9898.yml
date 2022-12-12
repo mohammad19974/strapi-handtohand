@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
 
@@ -26,19 +27,12 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
- jobs:
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    
-    - name: Login via Az module
-      uses: azure/login@v1
-      with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
-        enable-AzPSSession: true 
-     
-     - run: |
+      - name:  Login via Az module
+        uses: azure/login@v1
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+          enable-AzPSSession: true 
+        - run: |
         Get-AzVM -ResourceGroupName "strapi9898_group"
 
   deploy:
@@ -47,9 +41,10 @@ jobs:
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
-    
+     
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
