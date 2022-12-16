@@ -1,29 +1,51 @@
-# Docker
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
 
-trigger:
-- main
+name: Build and deploy container app to Azure Web App - strapi-handtohand
 
-resources:
-- repo: self
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-variables:
-  tag: '$(Build.BuildId)'
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
 
-stages:
-- stage: Build
-  displayName: Build image
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: ubuntu-latest
     steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
+    - uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Log in to registry
+      uses: docker/login-action@v1
+      with:
+        registry: https://mcr.microsoft.com/
+        username: ${{ secrets.AzureAppService_ContainerUsername_6074b0695c5e49ed943e934f283815d6 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_27b8a50c4b5549b2948587ce7204a13b }}
+
+    - name: Build and push container image to registry
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_6074b0695c5e49ed943e934f283815d6 }}/appsvc/staticsite:${{ github.sha }}
+        file: ./Dockerfile
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'strapi-handtohand'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1e912b39967e4d94bee6565502f1bb67 }}
+        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_6074b0695c5e49ed943e934f283815d6 }}/appsvc/staticsite:${{ github.sha }}'
