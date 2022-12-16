@@ -11,7 +11,8 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY package*.json /usr/src/app/
 COPY package-lock.json /usr/src/app/
-RUN npm install
+RUN npm install -timeout=600000
+
 
 # Bundle app source
 COPY . /usr/src/app
