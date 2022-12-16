@@ -49,5 +49,6 @@ jobs:
         with:
           app-name: 'strapi9898'
           slot-name: 'production'
-          publish-profile: strapi9898.scm.azurewebsites.net:443
+          
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_62665ca37e8a434da926f56d5ba5cac2 }}
           package: .

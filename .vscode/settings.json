@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/4ae6b385-39dd-434c-b113-775b123387e4/AppServices/subscriptions/4ae6b385-39dd-434c-b113-775b123387e4/resourceGroups/strapi9898_group/providers/Microsoft.Web/sites/strapi9898",
+    "appService.deploySubpath": "."
+}
