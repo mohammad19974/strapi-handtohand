@@ -1,22 +1,11 @@
-FROM node:16.19.0
-
-ENV PORT 1337
-ENV HOST 0.0.0.0
-ENV NODE_ENV production
-
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-# Install app dependencies
-COPY package*.json /usr/src/app/
-COPY yarn.lock /usr/src/app/
-RUN yarn install
-
-# Bundle app source
-COPY . /usr/src/app
-
-RUN yarn build
+FROM node:16-alpine
+RUN apk add vips-dev
+RUN rm -rf /var/cache/apk/*
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+WORKDIR /opt/app
+COPY --from=build /opt/node_modules ./node_modules
+ENV PATH /opt/node_modules/.bin:$PATH
+COPY --from=build /opt/app ./
 EXPOSE 1337
-
-CMD [ "node", "server.js" ]
+CMD ["yarn", "start"]
