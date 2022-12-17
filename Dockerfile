@@ -18,4 +18,4 @@ COPY . /usr/src/app
 RUN yarn build
 EXPOSE 1337
 
-CMD [ "node", "server.js" ]
+CMD [ "yarn", "start" ]
