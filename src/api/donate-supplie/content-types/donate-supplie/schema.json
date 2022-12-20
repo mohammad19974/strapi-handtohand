@@ -43,6 +43,10 @@
         "reached"
       ],
       "default": "pending"
+    },
+    "quality": {
+      "type": "integer",
+      "default": 1
     }
   }
 }
