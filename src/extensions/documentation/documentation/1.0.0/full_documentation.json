@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-12-20T14:49:24.561Z"
+    "x-generation-date": "2022-12-31T11:23:14.579Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -11476,10 +11476,9 @@
                 "enum": [
                   "review",
                   "applied",
-                  "pending",
-                  "delivery ",
-                  "received",
-                  "reached"
+                  "delivery",
+                  "package_arrived",
+                  "arrived"
                 ]
               },
               "quality": {
@@ -11833,10 +11832,9 @@
                 "enum": [
                   "review",
                   "applied",
-                  "pending",
-                  "delivery ",
-                  "received",
-                  "reached"
+                  "delivery",
+                  "package_arrived",
+                  "arrived"
                 ]
               },
               "quality": {
@@ -12236,10 +12234,9 @@
                 "enum": [
                   "review",
                   "applied",
-                  "pending",
-                  "delivery ",
-                  "received",
-                  "reached"
+                  "delivery",
+                  "package_arrived",
+                  "arrived"
                 ]
               },
               "quality": {
@@ -12672,10 +12669,9 @@
                 "enum": [
                   "review",
                   "applied",
-                  "pending",
-                  "delivery ",
-                  "received",
-                  "reached"
+                  "delivery",
+                  "package_arrived",
+                  "arrived"
                 ]
               },
               "quality": {
@@ -13075,10 +13071,9 @@
                 "enum": [
                   "review",
                   "applied",
-                  "pending",
-                  "delivery ",
-                  "received",
-                  "reached"
+                  "delivery",
+                  "package_arrived",
+                  "arrived"
                 ]
               },
               "quality": {

@@ -37,12 +37,11 @@
       "enum": [
         "review",
         "applied",
-        "pending",
-        "delivery ",
-        "received",
-        "reached"
+        "delivery",
+        "package_arrived",
+        "arrived"
       ],
-      "default": "pending"
+      "default": "review"
     },
     "quality": {
       "type": "integer",
